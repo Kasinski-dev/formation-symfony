@@ -1,0 +1,35 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Salut les gens
+{% endblock %}
+
+{% block header %}
+    <h2>Voici le header</h2>
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ title | upper }}</h1>
+    <h2>Le vrai titre est {{ title }}</h2>
+    <p>Comment ça va ?</p>
+    <a href="{{ path('hello', {'prenom':'seb le grand seb', 'age':'33'}) }}">Aller voir hello</a>
+    {% if age >= 18 %}
+        <p>Vous êtes un adulte.</p>
+    {% elseif age >= 12 %}
+        <p>Vous êtes un ado.</p>
+    {% else %}
+        <p>Vous êtes un enfant.</p>
+    {% endif %}
+
+    <ul>
+        {% for compteur in 0..10 %}
+            <li>{{compteur}}</li>
+        {% endfor %}
+    </ul>
+
+    {% for prenom, age in tableau %}
+        <p>(itération n° {{ loop.index0 }}) {{ prenom }} a {{ age }} ans</p>
+    {% endfor %}
+{% endblock %}
