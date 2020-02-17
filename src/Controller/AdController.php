@@ -20,7 +20,7 @@ class AdController extends AbstractController
      */
     public function index(AdRepository $repo)
     {
-        dump($repo);
+        // dump($repo);
         // $repo = $this->getDoctrine()->getRepository(Ad::class);
         $ads = $repo->findAll();
 

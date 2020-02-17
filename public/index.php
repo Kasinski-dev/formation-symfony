@@ -6,6 +6,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 require dirname(__DIR__).'/config/bootstrap.php';
 
+// >> SPECIF CAR PROBLEME DE PARAMETRAGE LE MODE DEBUG EST A 1 EN PROD ALORS QU'IL DEVRAIT ETRE A 0
+if ($_SERVER['APP_ENV'] == "prod"){
+    $_SERVER['APP_DEBUG'] = "0";
+}
+
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
