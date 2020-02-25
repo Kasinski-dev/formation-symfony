@@ -11,11 +11,38 @@
     {# {{ form_label(form.title)}} #}
     
     <div class="container">
-        <h1>Créer une nouvelle annonce</h1>
+        <h1 class="my-5">Créer une nouvelle annonce</h1>
 
         {{ form_start(form) }}
-
-        {{ form_widget(form) }}
+        
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2 class="alert-heading">Information générales</h2>
+                    <hr>
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.slug) }}
+                    {{ form_row(form.price) }}
+                    {{ form_row(form.rooms) }}
+                </div>
+                <div class="alert alert-light">
+                    <h2 class="alert-heading">Détail de l'annonce</h2>
+                    <hr>
+                    {{ form_row(form.introduction) }}
+                    {{ form_row(form.content) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2 class="alert-heading">Images de l'annonce</h2>
+                    <hr>
+                    {{ form_row(form.coverImage) }}
+                    {{ form_row(form.images) }}
+                </div>
+            </div>
+        </div>
+        
+        {# {{ form_widget(form) }} #}
 
         {# <div class="form-group">
             {{ form_label(form.title) }}
@@ -26,8 +53,11 @@
             {{ form_widget(form.introduction, {'attr' : {'class' : 'form-control', 'placeholder' : 'Titre de l\'annonce'} }) }}
         </div> #}
 
-        <button type="submit" class="btn btn-primary">Créer la nouvelle annonce</button>
-
+        <div class="alert alert-success clearfix">
+            <h2 class="alert-heading">Sauvegarder mon annonce</h2>
+            <p>Vous êtes sur le point de créer une annonce, félicitation !</p>
+            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-check"></i> Créer la nouvelle annonce</button>
+        </div>
         {{ form_end(form) }}
 
     </div>
